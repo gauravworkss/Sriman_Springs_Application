@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="a" class="com.bl.beans.A" init-method="init" destroy-method="release">
+		<constructor-arg value="S1"/>
+		<property name="s2" value="S2"/>
+	</bean>
+	<bean id="shutdownHook" class="com.bl.beans.ShutdownHook"/>
+</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+<!-- 	<bean id="s1" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="Subject1"/> -->
+<!-- 	</bean> -->
+	<bean id="university" class="com.cdi.beans.University">
+		<constructor-arg>
+			<!-- <map>
+				<entry key="f1" value-ref="s1"></entry>
+			</map> -->
+			<util:map>
+				<entry key="f2" value="subject1"/>
+			</util:map>
+		</constructor-arg>
+		<property name="courses">
+		<!-- 
+			<list>
+				<value>B.Tech</value>
+				<value>M.C.A</value>
+				<value>B-Pharm</value>
+			</list>
+		 -->
+		 	<util:list value-type="java.lang.String">
+		 		<value>B.Tech</value>
+		 		<value>M.C.A</value>
+		 	</util:list>			
+		</property>
+		<property name="subjects">
+			<set>
+				<value>Science</value>
+				<value>S.E</value>
+				<value>Accountancy</value>
+				<value>C</value>
+			</set>
+		</property>
+		<property name="standards">
+			<util:properties>
+				<prop key="p1">v1</prop>
+				<prop key="p2">v2</prop>
+			</util:properties>
+		</property>
+	</bean>
+
+</beans>

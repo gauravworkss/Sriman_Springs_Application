@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="keyGenerator" class="com.ar.beans.KeyGenerator" />
+	<bean id="keyCheckAspect" class="com.ar.beans.KeyCheckAspect" />
+
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* com.ar.beans.KeyGenerator.generateKey(..)) and args(bitType,..))"
+			id="keyCheckPointcut" />
+
+		<aop:aspect id="ka" ref="keyCheckAspect">
+			<aop:after-returning method="check" pointcut-ref="keyCheckPointcut"
+				returning="retVal" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

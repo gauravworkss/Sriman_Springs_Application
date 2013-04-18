@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="shop" class="com.ba.beans.Shop">
+		<constructor-arg ref="dtdc" index="1"/>
+		<constructor-arg ref="bd" index="0"/>
+	</bean>
+	
+	<!-- <bean id="dtdc" class="com.ba.beans.Dtdc"/> -->
+	<bean id="bd" name="dtdc,dtdc1,dtdc2" class="com.ba.beans.Bluedart"/>
+	<!-- <alias name="bd" alias="dtdc"/>-->
+</beans>

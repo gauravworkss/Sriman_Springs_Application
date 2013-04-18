@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="baseCalculator" class="com.bi.beans.Calculator" abstract="true">
+		<property name="pi" value="3.1415"/>
+		<property name="alpha" value="23"/>
+	</bean>
+	
+	<bean id="simpleCalculator" class="com.bi.beans.Calculator" parent="baseCalculator">		
+		<property name="gama" value="354"/>
+		<property name="beta" value="35"/>
+	</bean>
+
+</beans>
