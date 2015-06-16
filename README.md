@@ -1,4 +1,5 @@
 Spring MVC as per Spring 3.0 Docs
+----------------------------------
 
 <img src="http://www.studytrails.com/resources/images/spring/springmvc/DispatcherServletWorkFlow.jpg" alt="Spring MVC Request View" style="width:304px;height:228px;">
 
