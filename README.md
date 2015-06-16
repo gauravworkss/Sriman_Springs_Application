@@ -1,5 +1,7 @@
 Spring MVC as per Spring 3.0 Docs
 
+<img src="http://www.studytrails.com/resources/images/spring/springmvc/DispatcherServletWorkFlow.jpg" alt="Spring MVC Request View" style="width:304px;height:228px;">
+
 Spring Different HandlerMapping
 ------------------------------
 
@@ -17,6 +19,16 @@ Spring Different HandlerMapping
 12. RequestMappingHandlerMapping
 13. RequestMappingInfoHandlerMapping
 14. SimpleUrlHandlerMapping
+
+Spring Different HandlerAdaptor
+-------------------------------
+
+1. <b>HandlerAdapter</b> : HandlerAdapter is responsible for actually invoking the handler. The handler is of type Object and hence the dispatcher servlet can handle any Handler type using the HandlerAdapter. Spring provides certain HandlerAdapters that can handle specific handler interfaces.
+2. <b>SimpleServletHandlerAdapter</b> : This adapter allows using the Servlet Interface. The adapter calls the service method of the Servlet. This adapter is not registered by default and needs to be registered in the DispatcherServlet as a bean. All handler beans that implement the Servlet interface are automatically handled by this adapter.
+3. <b>SimpleControllerHandlerAdapter</b> : Adapter for handlers that implement the Controller interface
+4. <b>HttpRequestHandlerAdapter</b> : Handles org.springframework.web.HttpRequestHandler interface. The HttpRequestHandler is used for handler that process HttpRequests. This interface is generally used to generate binary responses and does not have a ModelAndView return type. The spring remoting classes such as HttpInvokerServiceExporter and HessianServiceExporter implement this interface.
+5. <b>AnnotationMethodHandlerAdapter</b> : This adapter maps Handler methods based on HTTP paths, HTTP methods and request parameters. The request parameters are bound through @RequestParam annotation. Note that this Adapater is deprecated in spring 3.2 in favour of RequestMappingHandlerAdapter.
+6. <b>RequestMappingHandlerAdapter</b> : This adapter supports Handler of type HandlerMethod. This adapter is used with RequestMappingHandlerMapping and is the new class introduced in Spring 3.1. custom Resolvers can be set using 
 
 Spring Different Controllers
 ----------------------------
